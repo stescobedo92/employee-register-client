@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
 const initialFieldValues = {
-    
+    employeeId:0,
+    employeeName:'',
+    ocuppation:'',
+    imageName:'',
+    imageSource:'',
+    imageFileName:null
 }
 
 export default function Employee() {
