@@ -1,6 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
+const initialFieldValues = {
+    
+}
 
 export default function Employee() {
+    const [values,setValues] = useState();
+
     return(
         <>
             <di className="container text-center">
