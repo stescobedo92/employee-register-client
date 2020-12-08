@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+const defaultImageSource = '/img/img-init.png';
+
 const initialFieldValues = {
     employeeId:0,
     employeeName:'',
