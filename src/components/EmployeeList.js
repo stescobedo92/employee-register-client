@@ -2,6 +2,11 @@ import React from 'react';
 import Employee from './Employee';
 
 export default function EmployeeList(){
+
+    const addOrEdit = (formData,onSuccess) => {
+
+    }
+
     return(
         <div className="row">
             <div className="col-md-12">
@@ -12,7 +17,9 @@ export default function EmployeeList(){
                 </div>
             </div>
             <div className="col-md-4">
-                <Employee />
+                <Employee
+                    addOrEdit = {addOrEdit} 
+                />
             </div>
             <div className="col-md-8">
                 <div>List of employee records</div>

@@ -11,9 +11,10 @@ const initialFieldValues = {
     imageFileName:null
 }
 
-export default function Employee() {
+export default function Employee(props) {
     const [values,setValues] = useState(initialFieldValues);
     const [errors,setErrors] = useState({});
+    const {addOrEdit} = props;
 
     const handleInputChange = e=> {
         const {name,value} = e.target;
@@ -54,6 +55,10 @@ export default function Employee() {
         return Object.values(temp).every(x => x == true);
     }
 
+    const resetForm = ()=> {
+        setValues(initialFieldValues)
+    }
+
     const handleFormSubmit = e=> {
         e.preventDefault();
         if(validate()){
@@ -64,6 +69,7 @@ export default function Employee() {
             formData.append('imageName',values.imageName);
             formData.append('imageSource',values.imageSource);
             formData.append('imageFileName',values.imageFileName);
+            addOrEdit(formData,resetForm);
         }
     }
 
