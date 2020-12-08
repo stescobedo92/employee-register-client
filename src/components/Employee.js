@@ -7,7 +7,7 @@ const initialFieldValues = {
     employeeName:'',
     ocuppation:'',
     imageName:'',
-    imageSource:'',
+    imageSource:defaultImageSource,
     imageFileName:null
 }
 
@@ -21,6 +21,22 @@ export default function Employee() {
             [name]: value
         })
     }
+
+    const showPreview = e=> {
+        if(e.target.files && e.target.files[0]){
+            let imageFile = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload =x=>{
+                setValues({
+                    ...values,
+                    imageFile,
+                    imageSource: x.target.result
+                })
+            };
+            reader.readAsDataURL(imageFile);
+        }
+    }
+
     return(
         <>
             <di className="container text-center">
@@ -31,7 +47,8 @@ export default function Employee() {
                     <img src={values.imageSource} className="card-img-top"/>
                     <div className="card-body">
                         <div className="form-group">
-                            <input type="file" accept="image/*" className="form-control-file"/>
+                            <input type="file" accept="image/*" className="form-control-file"
+                                    onChange={showPreview} />
                         </div>
                         <div className="form-group">
                             <input className="form-control" placeholder="Employee Name" name="employeeName" value={values.employeeName} 
