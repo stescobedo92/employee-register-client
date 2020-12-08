@@ -56,7 +56,8 @@ export default function Employee(props) {
     }
 
     const resetForm = ()=> {
-        setValues(initialFieldValues)
+        setValues(initialFieldValues);
+        document.getElementById("image-uploader").value = null;
     }
 
     const handleFormSubmit = e=> {
@@ -86,7 +87,7 @@ export default function Employee(props) {
                     <div className="card-body">
                         <div className="form-group">
                             <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('imageSource')}
-                                    onChange={showPreview} />
+                                    onChange={showPreview} id="image-uploader" />
                         </div>
                         <div className="form-group">
                             <input className={"form-control" + applyErrorClass('employeeName')} placeholder="Employee Name" name="employeeName" value={values.employeeName} 
