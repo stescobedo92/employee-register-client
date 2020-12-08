@@ -79,9 +79,9 @@ export default function Employee(props) {
 
     return(
         <>
-            <di className="container text-center">
+            <div className="container text-center">
                 <p className="lead">An Employee</p>
-            </di>
+            </div>
             <form autocomplete="off" novalidate onsubmit={handleFormSubmit}>
                 <div className="card">
                     <img src={values.imageSource} className="card-img-top"/>
