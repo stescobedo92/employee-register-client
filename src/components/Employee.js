@@ -28,6 +28,9 @@ export default function Employee() {
                 <div className="card">
                     <div className="card-body">
                         <div className="form-group">
+                            <input type="file" accept="image/*" className="form-control-file"/>
+                        </div>
+                        <div className="form-group">
                             <input className="form-control" placeholder="Employee Name" name="employeeName" value={values.employeeName} 
                                     onChange={handleInputChange}/>
                         </div>
