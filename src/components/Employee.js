@@ -57,7 +57,13 @@ export default function Employee() {
     const handleFormSubmit = e=> {
         e.preventDefault();
         if(validate()){
-
+            const formData = new FormData();
+            formData.append('employeeId',values.employeeId);
+            formData.append('employeeName',values.employeeName);
+            formData.append('occupation',values.ocuppation);
+            formData.append('imageName',values.imageName);
+            formData.append('imageSource',values.imageSource);
+            formData.append('imageFileName',values.imageFileName);
         }
     }
 
