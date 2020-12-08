@@ -13,6 +13,7 @@ const initialFieldValues = {
 
 export default function Employee() {
     const [values,setValues] = useState(initialFieldValues);
+    const [errors,setErrors] = useState({});
 
     const handleInputChange = e=> {
         const {name,value} = e.target;
@@ -44,12 +45,25 @@ export default function Employee() {
         }
     }
 
+    const validate = ()=> {
+        let temp = {};
+        temp.employeeName = values.employeeName === "" ? false : true;
+        temp.imageSource = values.imageSource === defaultImageSource ? false : true;
+        setErrors(temp);
+
+        return Object.values(temp).every(x => x == true);
+    }
+
+    const handleFormSubmit = e=> {
+        e.preventDefault();
+    }
+
     return(
         <>
             <di className="container text-center">
                 <p className="lead">An Employee</p>
             </di>
-            <form autocomplete="off" novalidate>
+            <form autocomplete="off" novalidate onsubmit={handleFormSubmit}>
                 <div className="card">
                     <img src={values.imageSource} className="card-img-top"/>
                     <div className="card-body">
