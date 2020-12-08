@@ -1,10 +1,24 @@
 import React from 'react';
 import Employee from './Employee';
+import axios from 'axios';
 
 export default function EmployeeList(){
 
-    const addOrEdit = (formData,onSuccess) => {
+    const employeeAPI = (url = '') =>{
+        return {
+            fetchAll: () =>axios.get(url),
+            create: newRecord => axios.post(url,newRecord),
+            update: (id,updateRecord) => axios.put(url + id, updateRecord),
+            delete: id=>axios.delete(url + id)
+        }
+    }
 
+    const addOrEdit = (formData,onSuccess) => {
+        employeeAPI().create(formData)
+                     .then(res => {
+                         onSuccess();
+                     })
+                     .catch(err => console.log(err))
     }
 
     return(
