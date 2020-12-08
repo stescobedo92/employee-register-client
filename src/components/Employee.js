@@ -47,8 +47,8 @@ export default function Employee() {
 
     const validate = ()=> {
         let temp = {};
-        temp.employeeName = values.employeeName === "" ? false : true;
-        temp.imageSource = values.imageSource === defaultImageSource ? false : true;
+        temp.employeeName = values.employeeName == "" ? false : true;
+        temp.imageSource = values.imageSource == defaultImageSource ? false : true;
         setErrors(temp);
 
         return Object.values(temp).every(x => x == true);
@@ -61,7 +61,7 @@ export default function Employee() {
         }
     }
 
-    const applyErrorClass = field => ((field in errors && errors[field]==false)?'invalid-field': '' )
+    const applyErrorClass = field => ((field in errors && errors[field]==false)?' invalid-field': '' )
 
     return(
         <>
@@ -77,11 +77,11 @@ export default function Employee() {
                                     onChange={showPreview} />
                         </div>
                         <div className="form-group">
-                            <input className={"form-control" + applyErrorClass('imageSource')} placeholder="Employee Name" name="employeeName" value={values.employeeName} 
+                            <input className={"form-control" + applyErrorClass('employeeName')} placeholder="Employee Name" name="employeeName" value={values.employeeName} 
                                     onChange={handleInputChange}/>
                         </div>
                         <div className="form-group">
-                            <input className={"form-control" + applyErrorClass('imageSource')} placeholder="Ocuppation" name="occupation" value={values.ocuppation} 
+                            <input className="form-control" placeholder="Ocuppation" name="occupation" value={values.ocuppation} 
                                     onChange={handleInputChange} />
                         </div>
                         <div className="form-group text-center">
