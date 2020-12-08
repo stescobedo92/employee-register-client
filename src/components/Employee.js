@@ -58,6 +58,7 @@ export default function Employee(props) {
     const resetForm = ()=> {
         setValues(initialFieldValues);
         document.getElementById("image-uploader").value = null;
+        setErrors({});
     }
 
     const handleFormSubmit = e=> {
