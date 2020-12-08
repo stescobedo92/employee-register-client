@@ -61,7 +61,7 @@ export default function Employee() {
         }
     }
 
-    const applyErrorClass = filed => ((field in errors && errors[field]==false)?'invalid-field': '' )
+    const applyErrorClass = field => ((field in errors && errors[field]==false)?'invalid-field': '' )
 
     return(
         <>
