@@ -56,7 +56,12 @@ export default function Employee() {
 
     const handleFormSubmit = e=> {
         e.preventDefault();
+        if(validate()){
+
+        }
     }
+
+    const applyErrorClass = filed => ((field in errors && errors[field]==false)?'invalid-field': '' )
 
     return(
         <>
@@ -68,15 +73,15 @@ export default function Employee() {
                     <img src={values.imageSource} className="card-img-top"/>
                     <div className="card-body">
                         <div className="form-group">
-                            <input type="file" accept="image/*" className="form-control-file"
+                            <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('imageSource')}
                                     onChange={showPreview} />
                         </div>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Employee Name" name="employeeName" value={values.employeeName} 
+                            <input className={"form-control" + applyErrorClass('imageSource')} placeholder="Employee Name" name="employeeName" value={values.employeeName} 
                                     onChange={handleInputChange}/>
                         </div>
                         <div className="form-group">
-                            <input className="form-control" placeholder="Ocuppation" name="occupation" value={values.ocuppation} 
+                            <input className={"form-control" + applyErrorClass('imageSource')} placeholder="Ocuppation" name="occupation" value={values.ocuppation} 
                                     onChange={handleInputChange} />
                         </div>
                         <div className="form-group text-center">
