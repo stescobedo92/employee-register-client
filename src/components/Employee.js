@@ -35,6 +35,13 @@ export default function Employee() {
             };
             reader.readAsDataURL(imageFile);
         }
+        else{
+            setValues({
+                ...values,
+                imageFile:null,
+                imageSource: defaultImageSource
+            })
+        }
     }
 
     return(
@@ -57,6 +64,9 @@ export default function Employee() {
                         <div className="form-group">
                             <input className="form-control" placeholder="Ocuppation" name="occupation" value={values.ocuppation} 
                                     onChange={handleInputChange} />
+                        </div>
+                        <div className="form-group text-center">
+                            <button type="submit" className="btn btn-light">Submit</button>
                         </div>
                     </div> 
                 </div>
