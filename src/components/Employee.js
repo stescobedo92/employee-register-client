@@ -26,6 +26,7 @@ export default function Employee() {
             </di>
             <form autocomplete="off" novalidate>
                 <div className="card">
+                    <img src={values.imageSource} className="card-img-top"/>
                     <div className="card-body">
                         <div className="form-group">
                             <input type="file" accept="image/*" className="form-control-file"/>
